@@ -1,8 +1,7 @@
 import { useContext } from "react";
 import { codeContext } from "../../context/codeContext";
 export default function InsideNav() {
-  const { receiveData, setReceivedData, handleApi, code, setCode } =
-    useContext(codeContext);
+  const { setWrittenCode } = useContext(codeContext);
   // const [code, setCode] = useState("code");
 
   //   useEffect(
@@ -32,13 +31,15 @@ export default function InsideNav() {
     <div className="flex justify-between m-4">
       <button
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        onClick={handleApi}
+        // onClick={handleApi}
       >
         Run
       </button>
       <button
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        onClick={() => setCode("")}
+        onClick={() => {
+          (setWrittenCode(""), localStorage.removeItem("code"));
+        }}
       >
         clear
       </button>

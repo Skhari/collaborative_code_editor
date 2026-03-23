@@ -3,9 +3,10 @@ import { javascript } from "@codemirror/lang-javascript";
 import { useContext } from "react";
 import InsideNav from "../insideNavComponents/insideNav";
 import { codeContext } from "../../context/codeContext";
+import OutPut from "../outPutComponent/outPut";
 
 export default function CodeEditor() {
-  const { code, setCode, onChange } = useContext(codeContext);
+  const { onChange, writtenCode } = useContext(codeContext);
   //   console.log(code);
   //   const [code, setCode] = useState("console.log('Hello World!');");
 
@@ -13,14 +14,18 @@ export default function CodeEditor() {
   //     setCode(value);
   //   };
   return (
-    <>
+    <div className="bg-gray-900">
       <InsideNav />
       <CodeMirror
-        value={code}
+        className="max-h-117 overflow-auto"
+        value={writtenCode}
         height="100hv"
         extensions={[javascript({ jsx: true })]}
         onChange={onChange}
+        tabSize={100}
+        color={"gray"}
       />
-    </>
+      <OutPut />
+    </div>
   );
 }
