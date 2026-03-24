@@ -1,13 +1,11 @@
 import "./index.css";
-import CodeEditor from "./codeEditorComponent/codeEditor";
-import MonacoCodeEditor from "./codeEditorComponent/monacoCodeEditor";
 import { CodeProvider } from "../context/codeContext";
+import EntryPage from "./Component/MainComponent/EntryPage";
 function App() {
   return (
     <>
       <CodeProvider>
-        <CodeEditor />
-        {/* <MonacoCodeEditor /> */}
+        <EntryPage />
       </CodeProvider>
     </>
   );

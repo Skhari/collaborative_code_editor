@@ -11,6 +11,7 @@ export const postCode = async (req, res, next) => {
     const response = await axios.post("https://api.jdoodle.com/v1/execute", {
       script: code,
       language: "nodejs",
+      stdin: "world",
       versionIndex: "0", // 0 usually means the latest version in JDoodle
       clientId: process.env.JDOODLE_CLIENT_ID,
       clientSecret: process.env.JDOODLE_CLIENT_SECRET,
