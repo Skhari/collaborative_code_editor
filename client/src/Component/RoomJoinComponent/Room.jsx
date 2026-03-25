@@ -11,12 +11,10 @@ function Room() {
       </h1>
 
       {/* Main Container */}
-      <div className="grid md:grid-cols-2 gap-8 w-full max-w-4xl">
+      <div className=" md:grid-cols-2 gap-8 w-full max-w-4xl flex justify-center items-center">
         {/* Create Room Card */}
         <div className="bg-gray-800 p-8 rounded-2xl border border-gray-700 shadow-xl hover:border-blue-500 transition-all">
-          <p className="text-xl font-semibold mb-4 text-blue-400">
-            Create Room
-          </p>
+          <p className="text-xl font-semibold mb-4 text-blue-400">Enter Room</p>
           <input
             value={roomId}
             onChange={(e) => setRoomId(e.target.value)}
@@ -32,7 +30,7 @@ function Room() {
           </button>
         </div>
 
-        {/* Join Room Card */}
+        {/* Join Room Card
         <div className="bg-gray-800 p-8 rounded-2xl border border-gray-700 shadow-xl hover:border-purple-500 transition-all">
           <p className="text-xl font-semibold mb-4 text-purple-400">
             Join Room
@@ -44,8 +42,7 @@ function Room() {
           />
           <button className="w-full mt-4 bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-lg transition-colors">
             Join Now
-          </button>
-        </div>
+          </button> */}
       </div>
     </div>
   );

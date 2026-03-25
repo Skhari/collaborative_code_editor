@@ -56,6 +56,11 @@ export const CodeProvider = ({ children }) => {
   const ydocRef = useRef(null);
   const providerRef = useRef(null);
 
+  const signalingServerUrl =
+    import.meta.env.VITE_MODE === "production"
+      ? "wss://yjs-server-production-984b.up.railway.app"
+      : "ws://localhost:4444";
+
   const handleJoinRoom = (roomId) => {
     console.log("Joining room:", roomId);
     if (providerRef.current) {
@@ -73,7 +78,7 @@ export const CodeProvider = ({ children }) => {
 
     // THE FIX: Delete the broken public servers and use your private one
     providerRef.current = new WebrtcProvider(roomId, ydocRef.current, {
-      signaling: ["ws://localhost:4444"],
+      signaling: [signalingServerUrl],
     });
 
     const ytext = ydocRef.current.getText("program");
