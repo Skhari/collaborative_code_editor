@@ -29,6 +29,11 @@ export const CodeProvider = ({ children }) => {
 
   const handleApi = async () => {
     setReceivedData("Loading.....");
+    const yOutput = ydocRef.current.getText("output");
+
+    yOutput.delete(0, yOutput.length);
+    yOutput.insert(0, "Loading.....");
+
     const { data } = await axios.post("http://localhost:3001/receiveCode", {
       code,
     });
@@ -36,10 +41,12 @@ export const CodeProvider = ({ children }) => {
     // console.log(data.data.output);
 
     if (data.data.error) {
-      setReceivedData(data.data.error);
+      yOutput.delete(0, yOutput.length);
+      yOutput.insert(0, data.data.error);
     }
     if (data.data.output) {
-      setReceivedData(data.data.output);
+      yOutput.delete(0, yOutput.length);
+      yOutput.insert(0, data.data.output);
     }
     // setReceivedData(data);
   };
@@ -82,6 +89,11 @@ export const CodeProvider = ({ children }) => {
     });
 
     const ytext = ydocRef.current.getText("program");
+    const youtPut = ydocRef.current.getText("output");
+
+    youtPut.observe(() => {
+      setReceivedData(youtPut.toString());
+    });
 
     setEditorExtensions([
       javascript({ jsx: true }),
