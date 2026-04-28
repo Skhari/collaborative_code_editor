@@ -65,7 +65,7 @@ export const CodeProvider = ({ children }) => {
 
   const signalingServerUrl =
     import.meta.env.VITE_MODE === "production"
-      ? "wss://yjs-server-production-984b.up.railway.app"
+      ? "wss://yjs-server-1-hj8q.onrender.com/"
       : "ws://localhost:4444";
 
   const handleJoinRoom = (roomId) => {
