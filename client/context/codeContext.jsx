@@ -112,8 +112,8 @@ export const CodeProvider = ({ children }) => {
   };
 
   const handlExitRoom = () => {
-    // ydocRef.current.destroy();
-    // providerRef.current.destroy();
+    ydocRef.current.destroy();
+    providerRef.current.destroy();
     setOpenEdit(true);
   };
 
